@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fdffe4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 20%;
+}
+
+header div.top-bar {
+  display: flex;
+  background-color: #0c0f0a;
+  min-width: 100vw;
+  flex-basis: 140px;
+  position: relative;
+}
+
+#profile {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fdffe4;
+  padding: 8px;
+}
+
+header h1 {
+  font-family: "Kalnia", serif;
+  font-size: 36px;
+  margin-top: 100px;
+  margin-bottom: 40px;
+  animation: jiggle 2s 0.5s forwards;
+}
+
+main {
+  display: flex;
+  color: #0c0f0a;
+  flex-basis: 80%;
+  min-height: fit-content;
+  align-items: top;
+  opacity: 0;
+  animation: fadein 1.2s 2s forwards;
+}
+
+main section.left {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 80%;
+  min-height: fit-content;
+  justify-content: space-between;
+  flex-grow: 3;
+  margin: auto;
+}
+
+main section.items {
+  display: flex;
+}
+
+main section section.item {
+  flex-basis: 33.33%;
+  min-height: auto;
+}
+
+main section section.item:hover {
+  background-color: #fefff0;
+  transform: scale(1.02);
+  transform-origin: bottom;
+  transition: transform 0.3s 0.1s, background-color 0.3s 0.1s;
+}
+
+.about,
+.career,
+.item {
+  margin: 12px;
+  border-radius: 40px;
+  border: 4px solid #0c0f0a;
+}
+
+main section section.career {
+  background-color: #ff69eb;
+}
+
+main section section.career:hover {
+  background-color: #f6acec;
+  transform: scale(1.02);
+  transform-origin: top left;
+  transition: transform 0.3s 0.1s, background-color 0.3s 0.1s;
+}
+
+main section.about {
+  flex-basis: 20%;
+  background-color: #affc41;
+  min-height: fit-content;
+  flex-grow: 1;
+}
+
+main section.about:hover {
+  background-color: #ccee9b;
+  transform: scale(1.02);
+  transform-origin: top right;
+  transition: transform 0.3s 0.1s, background-color 0.3s 0.1s;
+}
+
+main section article {
+  margin: 16px 8px;
+}
+
+main section h2 {
+  font-family: "Kalnia", serif;
+  font-size: 24px;
+  margin: 8px 16px 0px;
+}
+
+main section article p,
+li {
+  font-family: "Afacad", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 12px 0px;
+}
+
+main section article ul {
+  margin-bottom: 16px;
+  margin-left: 24px;
+}
+
+li.green {
+  list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none"><circle cx="6.50466" cy="6.39263" r="5.60748" fill="%230C0F0A"/><circle cx="5.60748" cy="5.60748" r="5.60748" fill="%23AFFC41"/></svg>');
+}
+
+li.pink {
+  list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none"><circle cx="6.50466" cy="6.39263" r="5.60748" fill="%230C0F0A"/><circle cx="5.60748" cy="5.60748" r="5.60748" fill="%23FF69EB"/></svg>');
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes jiggle {
+  1% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  5% {
+    transform: translate(1px, -1px) rotate(-1deg);
+  }
+  10% {
+    transform: translate(2px, -2px) rotate(0deg);
+  }
+  15% {
+    transform: translate(3px, -3px) rotate(1deg);
+  }
+  20% {
+    transform: translate(2px, -2px) rotate(0deg);
+  }
+  25% {
+    transform: translate(1px, -1px) rotate(-1deg);
+  }
+  30% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  35% {
+    transform: translate(-1px, 1px) rotate(1deg);
+  }
+  40% {
+    transform: translate(-2px, 2px) rotate(0deg);
+  }
+  45% {
+    transform: translate(-3px, 3px) rotate(-1deg);
+  }
+  50% {
+    transform: translate(-2px, 2px) rotate(1deg);
+  }
+  55% {
+    transform: translate(-1px, 1px) rotate(1deg);
+  }
+  60% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@media all and (max-width: 640px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main section.about {
+    order: -1;
+  }
+
+  main section.items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  main section section.career:focus {
+    background-color: #f6acec;
+    transform: scale(1.02);
+    transform-origin: top;
+    transition: transform 0.3s 0.1s, background-color 0.3s 0.1s;
+  }
+
+  main section section.item:focus {
+    background-color: #fefff0;
+    transform: scale(1.02);
+    transform-origin: top;
+    transition: transform 0.3s 0.1s, background-color 0.3s 0.1s;
+  }
+
+  main section.about:focus {
+    background-color: #ccee9b;
+    transform: scale(1.02);
+    transform-origin: top;
+    transition: transform 0.3s 0.1s, background-color 0.3s 0.1s;
+  }
+}
